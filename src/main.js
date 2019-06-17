@@ -8,6 +8,11 @@ import './assets/css/common.css'
 import axios from '../node_modules/axios'
 Vue.prototype.axios = axios;
 
+// 全局过滤器：将movieList接口中的img路径中的（w.h）替换
+Vue.filter('setWH',(url,arg)=>{
+	return url.replace((/w\.h/),arg); //这个.需要转义
+});
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
