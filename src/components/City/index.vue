@@ -16,7 +16,7 @@
                         <li>安庆</li>
                         <li>安阳</li>
                     </ul>
-                </div>	
+                </div>  
             </div>
         </div>
         <div class="city_index">
@@ -44,7 +44,7 @@
                             <ul>
                                 <li v-for="itemList in item.list" :key="itemList.id" @tap="handleToCity(itemList.nm , itemList.id)">{{ itemList.nm }}</li>
                             </ul>
-                        </div>	
+                        </div>  
                     </div>
                 </div>
             </Scroller>
@@ -87,7 +87,7 @@ export default {
                     var { cityList , hotList } = this.formatCityList(cities);
                     this.cityList = cityList;
                     this.hotList = hotList;
-                    window.localStorage.setItem('cityList' , JSON.stringify(cityList));
+                    window.localStorage.setItem('cityList' , JSON.stringify(cityList)); //本地存储
                     window.localStorage.setItem('hotList' , JSON.stringify(hotList));
                 }
             });
@@ -147,8 +147,6 @@ export default {
             };
 
         },
-
-        //点击index，定位首字母位置：改变滚动条位置
         handleToIndex(index){
             var h2 = this.$refs.city_sort.getElementsByTagName('h2');
             //this.$refs.city_sort.parentNode.scrollTop = h2[index].offsetTop;
