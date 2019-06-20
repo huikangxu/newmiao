@@ -13,9 +13,9 @@ export default new Router({
   	movieRouter,
   	cinemaRouter,
   	mineRouter,
-  	{   //  这是重定向？当路径都不匹配时，默认进入movie
-  		path : '/*',
-  		redirect : '/movie'
-  	}
+  	// {   //  这是重定向？当路径都不匹配时，默认进入movie
+  	// 	path : '/*',
+  	// 	redirect : '/movie'
+  	// }
   ]
 })
