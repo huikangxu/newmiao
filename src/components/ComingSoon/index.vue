@@ -15,7 +15,7 @@
 						预售
 					</div>
 				</li> -->
-				<li v-for="item in comingList" :key="item.id">
+				<li v-for="item in comingList" :key="item.id" @tap="handleToDetail(item.id)">
 					<div class="pic_show"><img :src="item.img | setWH('128.180')"></div>
 					<div class="info_list">
 						<h2>{{item.nm}} <img v-if="item.version" src="@/assets/maxs.png"></h2>
@@ -59,7 +59,7 @@
 		},
 		activated() {
 			var cityId = this.$store.state.city.id;
-			if(this.prevCityId == cityId){return;}
+			if(this.prevCityId === cityId){return;}
 			this.isLoading = true;
 			this.axios.get('/api/api/movieComingList?cityId=10').then((res)=>{
 				var msg = res.data.msg;
@@ -69,6 +69,12 @@
 					this.prevCityId = cityId;
 				}
 			})
+		},
+		methods : {
+			handleToDetail(movieId){
+	            // console.log(movieId);
+	            this.$router.push('/movie/detail/2/' + movieId); //这个detail/1的路由，是为了解决两个router的问题
+	        },
 		}
 	}
 </script>

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './assets/css/common.css'
+import '../public/libs/swiper-4.1.0.min.css'
+import '../public/libs/swiper-4.1.0.min.js'
 import store from './stores'
 
 import axios from '../node_modules/axios'

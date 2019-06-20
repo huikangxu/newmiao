@@ -16,7 +16,7 @@
 					</div>
 				</li> -->
 				<li class="pullDown">{{pullDownMsg}}</li>
-				 <li v-for="item in movieList" :key="item.id">
+				 <li v-for="item in movieList" :key="item.id" @tap="handleToDetail(item.id)">
 					<div class="pic_show"><img :src="item.img | setWH('128.180')"></div> <!-- 此处引用setWH(128.180),会导致图片失真变为128*18，所以加上引号变为字符串 -->
 					<div class="info_list">
 						<h2>{{item.nm}} <img v-if="item.version" src="@/assets/maxs.png"></h2><!-- 此处v-if是判断是否有version这个字段，有才显示maxs的图标 -->
@@ -108,10 +108,10 @@
 			});
 		},
 		methods : {
-	        // handleToDetail(movieId){
-	        //     //console.log(movieId);
-	        //     this.$router.push('/movie/detail/1/' + movieId);
-	        // },
+	        handleToDetail(movieId){
+	            // console.log(movieId);
+	            this.$router.push('/movie/detail/1/' + movieId); //这个detail/1的路由，是为了解决两个router的问题
+	        },
 	        handleToScroll(pos){
 	            if( pos.y > 30 ){
 	                this.pullDownMsg = '正在更新中';
